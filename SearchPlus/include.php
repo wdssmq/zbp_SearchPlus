@@ -47,7 +47,8 @@ function SearchPlus_Main() {
 
 	foreach($articles as $article){
 		$intro = preg_replace('/[\r\n\s]+/', '', trim(SubStrStartUTF8(TransferHTML($article->Content,'[nohtml]'),$q,170)) . '...');
-		$article->Intro = str_ireplace($q,$qc,$intro);
+    $article->Intro = str_ireplace($q,$qc,$intro);
+    $article->Intro = "<p>{$article->Intro}</p>";
 		$article->Title = str_ireplace($q,$qc,$article->Title);
 	}
 
