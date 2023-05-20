@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin version="php">
 <id>SearchPlus</id>
-<name>Search Plus</name>
+<name>「水水」搜索增强</name>
 <url>https://app.zblogcn.com/?id=423</url>
-<note>搜索优化</note>
-<description>搜索优化,默认调用index模板，存在search模板则调用search模板。</description>
-<path></path>
+<note>搜索伪静态，Algolia 接入；</note>
+<description>置百丈玄冰而崩裂，掷须臾池水而漂摇。</description>
+<path>main.php</path>
 <include>include.php</include>
 <level>1</level>
 <author>
@@ -18,12 +18,12 @@
   <email></email>
   <url></url>
 </source>
-<adapted>151626</adapted>
+<adapted>172980</adapted>
 <version>1.0</version>
 <pubdate>2014-07-03</pubdate>
-<modified>2022-09-15</modified>
+<modified>2023-05-20</modified>
 <price>0</price>
-<phpver>5.4</phpver>
+<phpver>5.6</phpver>
 <advanced>
   <dependency></dependency>
   <rewritefunctions></rewritefunctions>

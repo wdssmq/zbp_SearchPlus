@@ -1,9 +1,19 @@
 <?php
+require __DIR__ . "/vendor/autoload.php";
+require __DIR__ . "/class/base.php";
+
 RegisterPlugin("SearchPlus", "ActivePlugin_SearchPlus");
 
 function ActivePlugin_SearchPlus()
 {
   Add_Filter_Plugin('Filter_Plugin_Zbp_PreLoad', 'SearchPlus_RegRoute');
+  Add_Filter_Plugin('Filter_Plugin_PostArticle_Core', 'SearchPlus_PostArticle');
+}
+
+// 接口函数 - 发布文章
+function SearchPlus_PostArticle(&$article)
+{
+  SearchPlus_IndexUpdate($article);
 }
 
 function SearchPlus_RegRoute()
@@ -26,6 +36,12 @@ function SearchPlus_RegRoute()
 
 function InstallPlugin_SearchPlus()
 {
+  global $zbp;
+  if (!$zbp->HasConfig('SearchPlus')) {
+    $zbp->Config('SearchPlus')->version = 1;
+    $zbp->Config('SearchPlus')->IndexPre= "zbp_";
+    $zbp->SaveConfig('SearchPlus');
+  }
 }
 
 function UninstallPlugin_SearchPlus()
